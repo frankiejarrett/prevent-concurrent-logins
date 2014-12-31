@@ -18,7 +18,7 @@ Prevents users from staying logged into the same account from multiple places.
 
 If for some reason you don't want to use a plugin to do this, you can also just add these functions and hooks to your theme: https://gist.github.com/fjarrett/0fa79273bd879f7ab6b3
 
-And as always, if you have suggestions to make this plugin better, or find problems with it, please create an issue on [GitHub](https://github.com/fjarrett/prevent-concurrent-logins).
+**Development of this plugin is done [on GitHub](https://github.com/fjarrett/prevent-concurrent-logins). Pull requests welcome. Please see [issues reported](https://github.com/fjarrett/prevent-concurrent-logins/issues) there before going to the plugin forum.**
 
 == Changelog ==
 
