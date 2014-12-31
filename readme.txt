@@ -24,6 +24,6 @@ And as always, if you have suggestions to make this plugin better, or find probl
 
 = 0.1.0 - December 31, 2014 =
 
-* Initial release.
+* Initial release
 
 Props [fjarrett](https://profiles.wordpress.org/fjarrett/)
