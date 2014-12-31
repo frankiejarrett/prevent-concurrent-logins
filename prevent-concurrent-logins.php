@@ -34,7 +34,7 @@ function pcl_get_current_session() {
  *
  * If the current user's session has been taken over by a newer
  * session then we will destroy their session automattically and
- * they will be redirected to the login page.
+ * they will have to login again to continue.
  *
  * @action init
  *
