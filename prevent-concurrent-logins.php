@@ -19,6 +19,17 @@ function pcl_user_has_concurrent_sessions() {
 }
 
 /**
+ * Get the user's current session array
+ *
+ * @return array
+ */
+function pcl_get_current_session() {
+	$sessions = WP_Session_Tokens::get_instance( get_current_user_id() );
+
+	return $sessions->get( wp_get_session_token() );
+}
+
+/**
  * Only allow one session per user
  *
  * If the current user's session has been taken over by a newer
@@ -34,9 +45,8 @@ function pcl_disallow_account_sharing() {
 		return;
 	}
 
-	$newest   = max( wp_list_pluck( wp_get_all_sessions(), 'login' ) );
-	$sessions = WP_Session_Tokens::get_instance( get_current_user_id() );
-	$session  = $sessions->get( wp_get_session_token() );
+	$newest  = max( wp_list_pluck( wp_get_all_sessions(), 'login' ) );
+	$session = pcl_get_current_session();
 
 	if ( $session['login'] === $newest ) {
 		wp_destroy_other_sessions();
