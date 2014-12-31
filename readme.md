@@ -10,7 +10,7 @@ Prevents users from being logged into the same WordPress site from multiple plac
 **Stable tag:** trunk (master)  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
-[![Build Status](https://travis-ci.org/fjarrett/wp-prevent-concurrent-logins.png?branch=master)](https://travis-ci.org/fjarrett/wp-prevent-concurrent-logins) 
+[![Build Status](https://travis-ci.org/fjarrett/prevent-concurrent-logins.png?branch=master)](https://travis-ci.org/fjarrett/prevent-concurrent-logins) 
 
 ## Description ##
 
@@ -21,7 +21,7 @@ Prevents users from being logged into the same WordPress site from multiple plac
 
 If for some reason you don't want to use a plugin to do this, you can also just add these functions and hooks to your theme: https://gist.github.com/fjarrett/0fa79273bd879f7ab6b3
 
-And as always, if you have suggestions to make this plugin better, or find problems with it, please create an issue on [GitHub](https://github.com/fjarrett/wp-prevent-concurrent-logins).
+And as always, if you have suggestions to make this plugin better, or find problems with it, please create an issue on [GitHub](https://github.com/fjarrett/prevent-concurrent-logins).
 
 ## Changelog ##
 
