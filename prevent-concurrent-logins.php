@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Prevent Concurrent Logins
- * Description: Prevents users from being logged into the same WordPress site from multiple places.
+ * Description: Prevents users from staying logged into the same account from multiple places.
  * Version: 0.1.0
  * Author: Frankie Jarrett
  * Author URI: http://frankiejarrett.com

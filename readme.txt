@@ -7,7 +7,7 @@ Stable tag:        trunk
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
-Prevents users from being logged into the same WordPress site from multiple places.
+Prevents users from staying logged into the same account from multiple places.
 
 == Description ==
 
