@@ -14,6 +14,8 @@ Prevents users from staying logged into the same account from multiple places.
 
 ## Description ##
 
+**Did you find this plugin helpful? Please consider [writing a review](https://wordpress.org/support/view/plugin-reviews/prevent-concurrent-logins).**
+
 * Deters members/subscribers from sharing their accounts with others
 * Hardens security by destoying old sessions automatically
 * Prompts old sessions to login again if they want to continue
