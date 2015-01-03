@@ -26,7 +26,7 @@ If for some reason you don't want to use a plugin to do this, you can also just 
 
 = 0.1.1 - January 2, 2015 =
 
-* Add filter to allow certain users to have concurrent sessions when necessary
+* Added filter to allow certain users to have concurrent sessions when necessary
 
 Props [fjarrett](https://profiles.wordpress.org/fjarrett/), [nutsandbolts](https://github.com/nutsandbolts)
 
