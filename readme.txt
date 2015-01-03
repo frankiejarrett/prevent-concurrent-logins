@@ -29,7 +29,6 @@ If for some reason you don't want to use a plugin to do this, you can also just 
 Yes, you can do this by using the `pcl_prevent_concurrent_logins` filter:
 
 <pre>
-<code>
 function fjarrett_pcl_bypass_admins( $user_id ) {
     $user = get_user_by( 'id', absint( $user_id ) );
 
@@ -40,7 +39,6 @@ function fjarrett_pcl_bypass_admins( $user_id ) {
     return true;
 }
 add_filter( 'pcl_prevent_concurrent_logins', 'fjarrett_pcl_bypass_admins', 10, 1 );
-</code>
 </pre>
 
 == Changelog ==
