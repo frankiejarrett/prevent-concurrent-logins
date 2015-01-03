@@ -24,6 +24,12 @@ If for some reason you don't want to use a plugin to do this, you can also just 
 
 == Changelog ==
 
+= 0.1.1 - January 2, 2015 =
+
+* Add filter to allow certain users to have concurrent sessions when necessary
+
+Props [fjarrett](https://profiles.wordpress.org/fjarrett/), [nutsandbolts](https://github.com/nutsandbolts)
+
 = 0.1.0 - December 31, 2014 =
 
 * Initial release

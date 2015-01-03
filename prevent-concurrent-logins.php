@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Prevent Concurrent Logins
  * Description: Prevents users from staying logged into the same account from multiple places.
- * Version: 0.1.0
+ * Version: 0.1.1
  * Author: Frankie Jarrett
  * Author URI: http://frankiejarrett.com
  * License: GPLv2+
