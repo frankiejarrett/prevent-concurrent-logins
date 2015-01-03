@@ -42,8 +42,8 @@ function fjarrett_pcl_bypass_admins( $user_id ) {
     return true;
 }
 add_filter( 'pcl_prevent_concurrent_logins', 'fjarrett_pcl_bypass_admins', 10, 1 );
-<code>
-<pre>
+</code>
+</pre>
 
 
 ## Changelog ##
