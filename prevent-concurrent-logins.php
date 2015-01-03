@@ -40,7 +40,7 @@ function pcl_get_current_session() {
  *
  * @return void
  */
-function pcl_disallow_concurrent_logins() {
+function pcl_prevent_concurrent_logins() {
 	if ( ! pcl_user_has_concurrent_sessions() ) {
 		return;
 	}
@@ -48,11 +48,11 @@ function pcl_disallow_concurrent_logins() {
 	/**
 	 * Filter to allow certain users to have concurrent sessions when necessary
 	 *
-	 * @param object WP_User
+	 * @param int  ID of the current user
 	 *
 	 * @return bool
 	 */
-	if ( false === apply_filters( 'pcl_disallow_concurrent_logins', true, wp_get_current_user() ) ) {
+	if ( false === apply_filters( 'pcl_prevent_concurrent_logins', true, get_current_user_id() ) ) {
 		return;
 	}
 
@@ -65,4 +65,4 @@ function pcl_disallow_concurrent_logins() {
 		wp_destroy_current_session();
 	}
 }
-add_action( 'init', 'pcl_disallow_concurrent_logins' );
+add_action( 'init', 'pcl_prevent_concurrent_logins' );
