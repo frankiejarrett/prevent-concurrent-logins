@@ -25,6 +25,25 @@ If for some reason you don't want to use a plugin to do this, you can also just 
 
 **Development of this plugin is done [on GitHub](https://github.com/fjarrett/prevent-concurrent-logins). Pull requests welcome. Please see [issues reported](https://github.com/fjarrett/prevent-concurrent-logins/issues) there before going to the plugin forum.**
 
+## Frequently Asked Questions ##
+
+### Can I still allow concurrent logins for certain users? ###
+Yes, you can do this by using the `pcl_prevent_concurrent_logins` filter:
+
+```php
+function fjarrett_pcl_bypass_admins( $user_id ) {
+    $user = get_user_by( 'id', absint( $user_id ) );
+
+    if ( ! empty( $user->roles[0] ) && 'administrator' === $user->roles[0] ) {
+        return false;
+    }
+
+    return true;
+}
+add_filter( 'pcl_prevent_concurrent_logins', 'fjarrett_pcl_bypass_admins', 10, 1 );
+```
+
+
 ## Changelog ##
 
 ### 0.1.1 - January 2, 2015 ###
