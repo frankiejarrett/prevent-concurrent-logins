@@ -18,7 +18,7 @@ Prevents users from staying logged into the same account from multiple places.
 * Prompts old sessions to login again if they want to continue
 * Ideal for membership sites and web applications
 
-If for some reason you don't want to use a plugin to do this, you can also just add these functions and hooks to your theme: https://gist.github.com/fjarrett/0fa79273bd879f7ab6b3
+If for some reason you don't want to use a plugin to do this, you can just add these functions and hooks to your theme: https://gist.github.com/fjarrett/0fa79273bd879f7ab6b3
 
 **Development of this plugin is done [on GitHub](https://github.com/fjarrett/prevent-concurrent-logins). Pull requests welcome. Please see [issues reported](https://github.com/fjarrett/prevent-concurrent-logins/issues) there before going to the plugin forum.**
 
@@ -29,7 +29,7 @@ If for some reason you don't want to use a plugin to do this, you can also just 
 Yes, you can do this by using the `pcl_prevent_concurrent_logins` filter:
 
 <pre lang="php">
-function fjarrett_pcl_bypass_admins( $user_id ) {
+function pcl_bypass_admins( $user_id ) {
     $user = get_user_by( 'id', absint( $user_id ) );
 
     if ( ! empty( $user->roles[0] ) && 'administrator' === $user->roles[0] ) {
@@ -38,7 +38,7 @@ function fjarrett_pcl_bypass_admins( $user_id ) {
 
     return true;
 }
-add_filter( 'pcl_prevent_concurrent_logins', 'fjarrett_pcl_bypass_admins', 10, 1 );
+add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_admins', 10, 1 );
 </pre>
 
 == Changelog ==
