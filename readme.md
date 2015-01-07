@@ -31,7 +31,7 @@ If for some reason you don't want to use a plugin to do this, you can just add t
 ### Can I still allow concurrent logins for certain users? ###
 Yes, you can do this by using the `pcl_prevent_concurrent_logins` filter:
 
-```php
+<pre lang="php">
 function pcl_bypass_admins( $user_id ) {
     $user = get_user_by( 'id', absint( $user_id ) );
 
@@ -42,7 +42,7 @@ function pcl_bypass_admins( $user_id ) {
     return true;
 }
 add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_admins', 10, 1 );
-```
+</pre>
 
 
 ## Changelog ##
