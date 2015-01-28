@@ -10,6 +10,12 @@
  */
 
 /**
+ * Define plugin constants
+ */
+define( 'PREVENT_CONCURRENT_LOGINS_VERSION', '0.1.1' );
+define( 'PREVENT_CONCURRENT_LOGINS_PLUGIN', plugin_basename( __FILE__ ) );
+
+/**
  * Detect if the current user has concurrent sessions
  *
  * @return bool
@@ -41,6 +47,8 @@ function pcl_get_current_session() {
  * @return void
  */
 function pcl_prevent_concurrent_logins() {
+	pcl_get_users_with_sessions();
+
 	if ( ! pcl_user_has_concurrent_sessions() ) {
 		return;
 	}
@@ -66,3 +74,63 @@ function pcl_prevent_concurrent_logins() {
 	}
 }
 add_action( 'init', 'pcl_prevent_concurrent_logins' );
+
+/**
+ * Get all users with active sessions
+ *
+ * @return object WP_User
+ */
+function pcl_get_users_with_sessions() {
+	$args = array(
+		'number'     => '', // All users
+		'blog_id'    => is_network_admin() ? 0 : get_current_blog_id(),
+		'fields'     => array( 'ID' ), // Only the ID field is needed
+		'meta_query' => array(
+			array(
+				'key'     => 'session_tokens',
+				'compare' => 'EXISTS',
+			),
+		),
+	);
+
+	$users = new WP_User_Query( $args );
+
+	return $users;
+}
+
+/**
+ * Destroy old sessions for all users
+ *
+ * This function is meant to run on activation only so that old
+ * sessions can be cleaned up immediately rather than waiting for
+ * every user to login again.
+ *
+ * @action activate_{plugin}
+ *
+ * @return void
+ */
+function pcl_destroy_all_old_sessions() {
+	$users = pcl_get_users_with_sessions()->get_results();
+
+	foreach ( $users as $user ) {
+		$sessions = get_user_meta( $user->ID, 'session_tokens', true );
+
+		// Move along if this user only has one session
+		if ( 1 === count( $sessions ) ) {
+			continue;
+		}
+
+		// Extract the login timestamps from all sessions
+		$logins = array_values( wp_list_pluck( $sessions, 'login' ) );
+
+		// Sort by login timestamp DESC
+		array_multisort( $logins, SORT_DESC, $sessions );
+
+		// Get the newest (top-most) session
+		$newest = array_slice( $sessions, 0, 1 );
+
+		// Keep only the newest session
+		update_user_meta( $user->ID, 'session_tokens', $newest );
+	}
+}
+register_activation_hook( __FILE__, 'pcl_destroy_all_old_sessions' );
