@@ -8,7 +8,7 @@ Prevents users from staying logged into the same account from multiple places.
 **Tags:** [login](https://wordpress.org/plugins/tags/login), [users](https://wordpress.org/plugins/tags/users), [membership](https://wordpress.org/plugins/tags/membership), [security](https://wordpress.org/plugins/tags/security), [sessions](https://wordpress.org/plugins/tags/sessions)  
 **Requires at least:** 4.1  
 **Tested up to:** 4.1  
-**Stable tag:** trunk (master)  
+**Stable tag:** 0.2.0  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
 [![Build Status](https://travis-ci.org/fjarrett/prevent-concurrent-logins.png?branch=master)](https://travis-ci.org/fjarrett/prevent-concurrent-logins) 
@@ -22,7 +22,7 @@ Prevents users from staying logged into the same account from multiple places.
 * Prompts old sessions to login again if they want to continue
 * Ideal for membership sites and web applications
 
-If for some reason you don't want to use a plugin to do this, you can just add these functions and hooks to your theme: https://gist.github.com/fjarrett/0fa79273bd879f7ab6b3
+**Important:** If you plan to network-activate this plugin on a multisite network, please install the [Proper Network Activation](https://wordpress.org/plugins/proper-network-activation/) plugin _beforehand_.
 
 **Development of this plugin is done [on GitHub](https://github.com/fjarrett/prevent-concurrent-logins). Pull requests welcome. Please see [issues reported](https://github.com/fjarrett/prevent-concurrent-logins/issues) there before going to the plugin forum.**
 
@@ -47,14 +47,19 @@ add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_admins', 10, 1 );
 
 ## Changelog ##
 
+### 0.2.0 - January 28, 2015 ###
+* Destroy old sessions for all users upon activation
+
+Props [fjarrett](https://github.com/fjarrett), [chuckreynolds](https://github.com/chuckreynolds)
+
 ### 0.1.1 - January 2, 2015 ###
 * Added filter to allow certain users to have concurrent sessions when necessary
 
-Props [fjarrett](https://profiles.wordpress.org/fjarrett/), [nutsandbolts](https://github.com/nutsandbolts)
+Props [fjarrett](https://github.com/fjarrett), [nutsandbolts](https://github.com/nutsandbolts)
 
 ### 0.1.0 - December 31, 2014 ###
 * Initial release
 
-Props [fjarrett](https://profiles.wordpress.org/fjarrett/)
+Props [fjarrett](https://github.com/fjarrett)
 
 
