@@ -47,8 +47,6 @@ function pcl_get_current_session() {
  * @return void
  */
 function pcl_prevent_concurrent_logins() {
-	pcl_get_users_with_sessions();
-
 	if ( ! pcl_user_has_concurrent_sessions() ) {
 		return;
 	}
