@@ -4,8 +4,8 @@
 ![Banner](assets/banner-1544x500.png)
 Prevents users from staying logged into the same account from multiple places.
 
-**Contributors:** [fjarrett](http://profiles.wordpress.org/fjarrett)  
-**Tags:** [login](http://wordpress.org/plugins/tags/login), [users](http://wordpress.org/plugins/tags/users), [membership](http://wordpress.org/plugins/tags/membership), [security](http://wordpress.org/plugins/tags/security), [sessions](http://wordpress.org/plugins/tags/sessions)  
+**Contributors:** [fjarrett](https://profiles.wordpress.org/fjarrett)  
+**Tags:** [login](https://wordpress.org/plugins/tags/login), [users](https://wordpress.org/plugins/tags/users), [membership](https://wordpress.org/plugins/tags/membership), [security](https://wordpress.org/plugins/tags/security), [sessions](https://wordpress.org/plugins/tags/sessions)  
 **Requires at least:** 4.1  
 **Tested up to:** 4.1  
 **Stable tag:** trunk (master)  
