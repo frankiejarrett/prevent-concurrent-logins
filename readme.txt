@@ -24,9 +24,17 @@ Prevents users from staying logged into the same account from multiple places.
 
 == Frequently Asked Questions ==
 
+= Where are the options for this plugin? =
+
+This plugin does not have a settings page. Simply put, I don't like bloating my plugins with a bunch of options.
+
+Instead, I try to develop functionality using the 80/20 principle so that for 80% of use cases you all you need to do is activate the plugin and it "just works".
+
+For the other 20% of you who want things to behave differently there are hooks available in the plugin so you can customize default behaviors.
+
 = Can I still allow concurrent logins for certain users? =
 
-Yes, you can do this by using the `pcl_prevent_concurrent_logins` filter:
+Yes, simply add this hook to your theme's `functions.php` file or as an [MU plugin](http://codex.wordpress.org/Must_Use_Plugins):
 
 <pre lang="php">
 function pcl_bypass_admins( $user_id ) {
@@ -38,7 +46,7 @@ function pcl_bypass_admins( $user_id ) {
 
     return true;
 }
-add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_admins', 10, 1 );
+add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_admins' );
 </pre>
 
 == Changelog ==
