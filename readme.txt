@@ -34,19 +34,37 @@ For the other 20% of you who want things to behave differently there are hooks a
 
 = Can I still allow concurrent logins for certain users? =
 
-Yes, simply add this hook to your theme's `functions.php` file or as an [MU plugin](http://codex.wordpress.org/Must_Use_Plugins):
+Yes, simply add this code to your theme's `functions.php` file or as an [MU plugin](http://codex.wordpress.org/Must_Use_Plugins):
 
 <pre lang="php">
-function pcl_bypass_admins( $user_id ) {
-    $user = get_user_by( 'id', absint( $user_id ) );
+function pcl_bypass_user_ids( $user_id ) {
+    $whitelist = array( 1, 2, 3 ); // Provide an array of user IDs to bypass
 
-    if ( ! empty( $user->roles[0] ) && 'administrator' === $user->roles[0] ) {
+    if ( in_array( $user_id, $whitelist ) ) {
         return false;
     }
 
     return true;
 }
-add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_admins' );
+add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_user_ids' );
+</pre>
+
+Or this code to bypass users with certain roles:
+
+<pre lang="php">
+function pcl_bypass_roles( $user_id ) {
+    $whitelist = array( 'administrator', 'editor' ); // Provide an array of roles to bypass
+    $user      = get_userdata( $user_id );
+    $roles     = empty( $user->roles ) ? array() : $user->roles;
+    $intersect = array_intersect( $roles, $whitelist );
+
+    if ( ! empty( $intersect ) ) {
+        return false;
+    }
+
+    return true;
+}
+add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_roles' );
 </pre>
 
 == Changelog ==
