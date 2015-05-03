@@ -51,14 +51,16 @@ function pcl_prevent_concurrent_logins() {
 		return;
 	}
 
+	$user_id = get_current_user_id();
+
 	/**
 	 * Filter to allow certain users to have concurrent sessions when necessary
 	 *
-	 * @param int  ID of the current user
+	 * @param int $user_id  ID of the current user
 	 *
 	 * @return bool
 	 */
-	if ( false === apply_filters( 'pcl_prevent_concurrent_logins', true, get_current_user_id() ) ) {
+	if ( false === apply_filters( 'pcl_prevent_concurrent_logins', true, $user_id ) ) {
 		return;
 	}
 
@@ -67,8 +69,22 @@ function pcl_prevent_concurrent_logins() {
 
 	if ( $session['login'] === $newest ) {
 		wp_destroy_other_sessions();
+
+		/**
+		 * Fires after a user's non-current sessions are destroyed
+		 *
+		 * @param int $user_id  ID of the current user
+		 */
+		do_action( 'pcl_destroy_other_sessions', $user_id );
 	} else {
 		wp_destroy_current_session();
+
+		/**
+		 * Fires after a user's current session is destroyed
+		 *
+		 * @param int $user_id  ID of the current user
+		 */
+		do_action( 'pcl_destroy_current_session', $user_id );
 	}
 }
 add_action( 'init', 'pcl_prevent_concurrent_logins' );
