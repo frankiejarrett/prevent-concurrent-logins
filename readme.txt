@@ -3,7 +3,7 @@ Contributors:      fjarrett
 Tags:              login, users, membership, security, sessions
 Requires at least: 4.1
 Tested up to:      4.2
-Stable tag:        0.2.0
+Stable tag:        0.3.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,12 @@ add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_roles' );
 </pre>
 
 == Changelog ==
+
+= 0.3.0 - May 4, 2015 =
+
+* Action hooks now available after sessions are destroyed for logging purposes [(#4)](https://github.com/fjarrett/prevent-concurrent-logins/issues/4)
+
+Props [fjarrett](https://github.com/fjarrett)
 
 = 0.2.0 - January 28, 2015 =
 

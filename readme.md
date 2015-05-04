@@ -8,7 +8,7 @@ Prevents users from staying logged into the same account from multiple places.
 **Tags:** [login](https://wordpress.org/plugins/tags/login), [users](https://wordpress.org/plugins/tags/users), [membership](https://wordpress.org/plugins/tags/membership), [security](https://wordpress.org/plugins/tags/security), [sessions](https://wordpress.org/plugins/tags/sessions)  
 **Requires at least:** 4.1  
 **Tested up to:** 4.2  
-**Stable tag:** 0.2.0  
+**Stable tag:** 0.3.0  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
 [![Build Status](https://travis-ci.org/fjarrett/prevent-concurrent-logins.png?branch=master)](https://travis-ci.org/fjarrett/prevent-concurrent-logins) 
@@ -71,6 +71,11 @@ add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_roles' );
 
 
 ## Changelog ##
+
+### 0.3.0 - May 4, 2015 ###
+* Action hooks now available after sessions are destroyed for logging purposes [(#4)](https://github.com/fjarrett/prevent-concurrent-logins/issues/4)
+
+Props [fjarrett](https://github.com/fjarrett)
 
 ### 0.2.0 - January 28, 2015 ###
 * Destroy old sessions for all users upon activation
