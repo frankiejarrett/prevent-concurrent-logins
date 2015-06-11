@@ -39,22 +39,22 @@ For the other 20% of you who want things to behave differently there are hooks a
 Yes, simply add this code to your theme's `functions.php` file or as an [MU plugin](http://codex.wordpress.org/Must_Use_Plugins):
 
 ```php
-function pcl_bypass_user_ids( $user_id ) {
+function pcl_bypass_user_ids( $prevent, $user_id ) {
     $whitelist = array( 1, 2, 3 ); // Provide an array of user IDs to bypass
 
     if ( in_array( $user_id, $whitelist ) ) {
         return false;
     }
 
-    return true;
+    return $prevent;
 }
-add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_user_ids' );
+add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_user_ids', 10, 2 );
 ```
 
 Or this code to bypass users with certain roles:
 
 ```php
-function pcl_bypass_roles( $user_id ) {
+function pcl_bypass_roles( $prevent, $user_id ) {
     $whitelist = array( 'administrator', 'editor' ); // Provide an array of roles to bypass
     $user      = get_user_by( 'id', absint( $user_id ) );
     $roles     = empty( $user->roles ) ? array() : $user->roles;
@@ -64,9 +64,9 @@ function pcl_bypass_roles( $user_id ) {
         return false;
     }
 
-    return true;
+    return $prevent;
 }
-add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_roles' );
+add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_roles', 10, 2 );
 ```
 
 
