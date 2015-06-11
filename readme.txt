@@ -54,7 +54,7 @@ Or this code to bypass users with certain roles:
 <pre lang="php">
 function pcl_bypass_roles( $user_id ) {
     $whitelist = array( 'administrator', 'editor' ); // Provide an array of roles to bypass
-    $user      = get_userdata( $user_id );
+    $user      = get_user_by( 'id', absint( $user_id ) );
     $roles     = empty( $user->roles ) ? array() : $user->roles;
     $intersect = array_intersect( $roles, $whitelist );
 
