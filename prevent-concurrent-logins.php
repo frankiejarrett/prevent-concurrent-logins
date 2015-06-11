@@ -56,11 +56,12 @@ function pcl_prevent_concurrent_logins() {
 	/**
 	 * Filter to allow certain users to have concurrent sessions when necessary
 	 *
-	 * @param int $user_id  ID of the current user
+	 * @param bool $prevent
+	 * @param int  $user_id  ID of the current user
 	 *
 	 * @return bool
 	 */
-	if ( false === apply_filters( 'pcl_prevent_concurrent_logins', true, $user_id ) ) {
+	if ( false === (bool) apply_filters( 'pcl_prevent_concurrent_logins', true, $user_id ) ) {
 		return;
 	}
 
