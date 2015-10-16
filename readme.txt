@@ -80,6 +80,12 @@ add_filter( 'pcl_prevent_concurrent_logins', 'my_pcl_bypass_roles', 10, 2 );
 
 == Changelog ==
 
+= 0.4.0 - October 16, 2015 =
+
+* Official support for WordPress 4.3
+
+Props [fjarrett](https://github.com/fjarrett)
+
 = 0.3.0 - May 4, 2015 =
 
 * Action hooks now available after sessions are destroyed for logging purposes [(#4)](https://github.com/fjarrett/prevent-concurrent-logins/issues/4)
