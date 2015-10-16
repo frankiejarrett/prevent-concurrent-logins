@@ -11,7 +11,7 @@ Prevents users from staying logged into the same account from multiple places.
 **Stable tag:** 0.4.0  
 **License:** [GPLv2+](https://www.gnu.org/licenses/gpl-2.0.html)  
 
-[![Build Status](https://travis-ci.org/fjarrett/prevent-concurrent-logins.svg?branch=master)](https://travis-ci.org/fjarrett/prevent-concurrent-logins) 
+[![Build Status](https://travis-ci.org/fjarrett/prevent-concurrent-logins.png?branch=master)](https://travis-ci.org/fjarrett/prevent-concurrent-logins) 
 
 ## Description ##
 
