@@ -45,7 +45,7 @@ function my_pcl_bypass_user_ids( $prevent, $user_id ) {
 
     if ( in_array( $user_id, $whitelist ) ) {
 
-        return false;
+        $prevent = false;
 
     }
 
@@ -70,7 +70,7 @@ function my_pcl_bypass_roles( $prevent, $user_id ) {
 
     if ( ! empty( $intersect ) ) {
 
-        return false;
+        $prevent = false;
 
     }
 
