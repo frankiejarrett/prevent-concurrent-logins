@@ -3,7 +3,7 @@ Contributors:      fjarrett
 Tags:              login, users, membership, security, sensei, sessions, woocommerce
 Requires at least: 4.1
 Tested up to:      4.3
-Stable tag:        0.3.0
+Stable tag:        0.4.0
 License:           GPLv2+
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 

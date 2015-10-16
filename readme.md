@@ -8,7 +8,7 @@ Prevents users from staying logged into the same account from multiple places.
 **Tags:** [login](https://wordpress.org/plugins/tags/login), [users](https://wordpress.org/plugins/tags/users), [membership](https://wordpress.org/plugins/tags/membership), [security](https://wordpress.org/plugins/tags/security), [sensei](https://wordpress.org/plugins/tags/sensei), [sessions](https://wordpress.org/plugins/tags/sessions), [woocommerce](https://wordpress.org/plugins/tags/woocommerce)  
 **Requires at least:** 4.1  
 **Tested up to:** 4.3  
-**Stable tag:** 0.3.0  
+**Stable tag:** 0.4.0  
 **License:** [GPLv2+](https://www.gnu.org/licenses/gpl-2.0.html)  
 
 [![Build Status](https://travis-ci.org/fjarrett/prevent-concurrent-logins.png?branch=master)](https://travis-ci.org/fjarrett/prevent-concurrent-logins) 
