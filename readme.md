@@ -5,11 +5,11 @@
 Prevents users from staying logged into the same account from multiple places.
 
 **Contributors:** [fjarrett](https://profiles.wordpress.org/fjarrett)  
-**Tags:** [login](https://wordpress.org/plugins/tags/login), [users](https://wordpress.org/plugins/tags/users), [membership](https://wordpress.org/plugins/tags/membership), [security](https://wordpress.org/plugins/tags/security), [sessions](https://wordpress.org/plugins/tags/sessions)  
+**Tags:** [login](https://wordpress.org/plugins/tags/login), [users](https://wordpress.org/plugins/tags/users), [membership](https://wordpress.org/plugins/tags/membership), [security](https://wordpress.org/plugins/tags/security), [sensei](https://wordpress.org/plugins/tags/sensei), [sessions](https://wordpress.org/plugins/tags/sessions), [woocommerce](https://wordpress.org/plugins/tags/woocommerce)  
 **Requires at least:** 4.1  
-**Tested up to:** 4.2  
+**Tested up to:** 4.3  
 **Stable tag:** 0.3.0  
-**License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
+**License:** [GPLv2+](https://www.gnu.org/licenses/gpl-2.0.html)  
 
 [![Build Status](https://travis-ci.org/fjarrett/prevent-concurrent-logins.png?branch=master)](https://travis-ci.org/fjarrett/prevent-concurrent-logins) 
 
@@ -39,34 +39,45 @@ For the other 20% of you who want things to behave differently there are hooks a
 Yes, simply add this code to your theme's `functions.php` file or as an [MU plugin](http://codex.wordpress.org/Must_Use_Plugins):
 
 ```php
-function pcl_bypass_user_ids( $prevent, $user_id ) {
-    $whitelist = array( 1, 2, 3 ); // Provide an array of user IDs to bypass
+function my_pcl_bypass_user_ids( $prevent, $user_id ) {
+
+    $whitelist = array( 1, 2, 3 ); // <--- Provide an array of user IDs to bypass
 
     if ( in_array( $user_id, $whitelist ) ) {
+
         return false;
+
     }
 
     return $prevent;
+
 }
-add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_user_ids', 10, 2 );
+add_filter( 'pcl_prevent_concurrent_logins', 'my_pcl_bypass_user_ids', 10, 2 );
 ```
 
 Or this code to bypass users with certain roles:
 
 ```php
-function pcl_bypass_roles( $prevent, $user_id ) {
-    $whitelist = array( 'administrator', 'editor' ); // Provide an array of roles to bypass
-    $user      = get_user_by( 'id', absint( $user_id ) );
-    $roles     = empty( $user->roles ) ? array() : $user->roles;
+function my_pcl_bypass_roles( $prevent, $user_id ) {
+
+    $whitelist = array( 'administrator', 'editor' ); // <--- Provide an array of roles to bypass
+
+    $user = get_user_by( 'id', absint( $user_id ) );
+
+    $roles = empty( $user->roles ) ? array() : $user->roles;
+
     $intersect = array_intersect( $roles, $whitelist );
 
     if ( ! empty( $intersect ) ) {
+
         return false;
+
     }
 
     return $prevent;
+
 }
-add_filter( 'pcl_prevent_concurrent_logins', 'pcl_bypass_roles', 10, 2 );
+add_filter( 'pcl_prevent_concurrent_logins', 'my_pcl_bypass_roles', 10, 2 );
 ```
 
 
