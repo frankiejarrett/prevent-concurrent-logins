@@ -43,13 +43,7 @@ function my_pcl_whitelist_user_ids( $prevent, $user_id ) {
 
     $whitelist = array( 1, 2, 3 ); // Provide an array of whitelisted user IDs
 
-    if ( in_array( $user_id, $whitelist ) ) {
-
-        $prevent = false;
-
-    }
-
-    return $prevent;
+    return in_array( $user_id, $whitelist ) ? false : $prevent;
 
 }
 add_filter( 'pcl_prevent_concurrent_logins', 'my_pcl_whitelist_user_ids', 10, 2 );
@@ -64,17 +58,9 @@ function my_pcl_whitelist_roles( $prevent, $user_id ) {
 
     $user = get_user_by( 'id', absint( $user_id ) );
 
-    $roles = empty( $user->roles ) ? array() : $user->roles;
+    $roles = ! empty( $user->roles ) ? $user->roles : array();
 
-    $intersect = array_intersect( $roles, $whitelist );
-
-    if ( ! empty( $intersect ) ) {
-
-        $prevent = false;
-
-    }
-
-    return $prevent;
+    return array_intersect( $roles, $whitelist ) ? false : $prevent;
 
 }
 add_filter( 'pcl_prevent_concurrent_logins', 'my_pcl_whitelist_roles', 10, 2 );
