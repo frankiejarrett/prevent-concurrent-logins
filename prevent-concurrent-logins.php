@@ -6,7 +6,7 @@
  * Author: Frankie Jarrett
  * Author URI: http://frankiejarrett.com
  * Text Domain: prevent-concurrent-logins
- * 
+ *
  * Copyright: © 2015 Frankie Jarrett.
  * License: GNU General Public License v2.0
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
