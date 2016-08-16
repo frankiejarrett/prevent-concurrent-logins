@@ -4,12 +4,11 @@
  * Description: Prevents users from staying logged into the same account from multiple places.
  * Version: 0.4.0
  * Author: Frankie Jarrett
- * Author URI: http://frankiejarrett.com
+ * Author URI: https://frankiejarrett.com
  * Text Domain: prevent-concurrent-logins
- *
- * Copyright: © 2015 Frankie Jarrett.
- * License: GNU General Public License v2.0
+ * License: GPL-2.0
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Copyright: © 2016 Frankie Jarrett
  */
 
 define( 'PREVENT_CONCURRENT_LOGINS_VERSION', '0.4.0' );
