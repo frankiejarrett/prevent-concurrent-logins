@@ -8,7 +8,8 @@
  * Text Domain: prevent-concurrent-logins
  * License: GPL-2.0
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Copyright: © 2016 Frankie Jarrett
+ *
+ * Copyright © 2016 Frankie Jarrett. All Rights Reserved.
  */
 
 define( 'PREVENT_CONCURRENT_LOGINS_VERSION', '0.4.0' );
