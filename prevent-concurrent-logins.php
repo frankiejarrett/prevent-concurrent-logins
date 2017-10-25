@@ -23,7 +23,7 @@ define( 'PREVENT_CONCURRENT_LOGINS_PLUGIN', plugin_basename( __FILE__ ) );
  */
 function pcl_user_has_concurrent_sessions() {
 
-	return ( is_user_logged_in() && count( wp_get_all_sessions() ) > 1 );
+	return ( is_user_logged_in() && count( wp_get_all_sessions() ) > apply_filters( 'pcl_concurrent_logins', 1 ) );
 
 }
 
